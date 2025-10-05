@@ -1,4 +1,5 @@
-from software_design_HW1.src.domain.animals import Animal, Herbivore
+from software_design_HW1.src.domain.animals.animals import Animal
+from software_design_HW1.src.domain.animals.herbivores import Herbivore
 from software_design_HW1.src.domain.protocols import AnimalRepository, VetClinic, ThingRepository
 from typing import List, Iterable
 from software_design_HW1.src.domain.inventory import InventoryNumberRegistry

@@ -1,9 +1,9 @@
-from __future__ import annotations  # на 3.10 и ниже; на 3.11+ не мешает
+from __future__ import annotations
 
 from typing import Protocol, Optional, Iterable, TYPE_CHECKING
 
 if TYPE_CHECKING:
-    from animals import Animal
+    from software_design_HW1.src.domain.animals.animals import Animal
     from things import Thing
 
 
