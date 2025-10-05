@@ -1,6 +1,6 @@
 from software_design_HW1.src.domain.protocols import AnimalRepository, ThingRepository
-from ..domain.animals import Animal
-from ..domain.things import Thing
+from software_design_HW1.src.domain.animals import Animal
+from software_design_HW1.src.domain.things import Thing
 from typing import Dict, Iterable, Optional
 
 

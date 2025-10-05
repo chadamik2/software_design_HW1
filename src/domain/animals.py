@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from protocols import IAlive
-from software_design_HW1.src.domain.protocols import IInventory
+from software_design_HW1.src.domain.protocols import IInventory, IAlive
 
 
 @dataclass(slots=True)
@@ -36,4 +35,9 @@ class Rabbit(Herbivore):
 
 @dataclass(slots=True)
 class Tiger(Predator):
+    pass
+
+
+@dataclass(slots=True)
+class Wolf(Predator):
     pass

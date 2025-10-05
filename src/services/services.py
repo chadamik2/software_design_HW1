@@ -1,20 +1,23 @@
 from software_design_HW1.src.domain.animals import Animal, Herbivore
 from software_design_HW1.src.domain.protocols import AnimalRepository, VetClinic, ThingRepository
 from typing import List, Iterable
+from software_design_HW1.src.domain.inventory import InventoryNumberRegistry
 
 from software_design_HW1.src.domain.things import Thing
 
 
 class AnimalService:
-    def __init__(self, repo: AnimalRepository, clinic: VetClinic):
+    def __init__(self, repo: AnimalRepository, clinic: VetClinic, number_registry: InventoryNumberRegistry):
         self.repo = repo
         self.clinic = clinic
+        self.number_registry = number_registry
 
     def add_animal(self, animal: Animal) -> bool:
-        if self.clinic.is_healthy(animal):
-            self.repo.add(animal)
-            return True
-        return False
+        if not self.clinic.is_healthy(animal):
+            return False
+        self.number_registry.reserve(animal.number)
+        self.repo.add(animal)
+        return True
 
     def list_animals(self) -> Iterable[Animal]:
         return self.repo.list()
@@ -30,10 +33,12 @@ class AnimalService:
 
 
 class ThingService:
-    def __init__(self, repo: ThingRepository):
+    def __init__(self, repo: ThingRepository, number_registry: InventoryNumberRegistry):
         self.repo = repo
+        self.number_registry = number_registry
 
     def add_thing(self, thing: Thing) -> None:
+        self.number_registry.reserve(thing.number)
         self.repo.add(thing)
 
     def list_things(self) -> Iterable[Thing]:

@@ -1,5 +1,5 @@
-from ..domain.animals import Animal
-from ..domain.protocols import VetClinic
+from software_design_HW1.src.domain.animals import Animal
+from software_design_HW1.src.domain.protocols import VetClinic
 
 
 class SimpleVetClinic(VetClinic):

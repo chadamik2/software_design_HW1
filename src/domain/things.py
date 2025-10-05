@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from protocols import IInventory
+from software_design_HW1.src.domain.protocols import IInventory
 
 
 @dataclass(slots=True)
