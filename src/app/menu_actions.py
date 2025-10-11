@@ -2,7 +2,7 @@ from software_design_HW1.src.domain.animals.herbivores import Herbivore
 from software_design_HW1.src.services.services import AnimalService, ThingService
 from software_design_HW1.src.data.data import ANIMAL_CLASSES, THING_CLASSES
 from typing import Protocol, Optional
-from input_processing import read_int, read_non_empty
+from software_design_HW1.src.app.input_processing import read_int, read_non_empty
 
 
 class MenuAction(Protocol):
