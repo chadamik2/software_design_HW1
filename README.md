@@ -20,29 +20,42 @@ ERP система для московского зоопарка.
 git clone https://github.com/chadamik2/software_design_HW1.git
 cd software_design_HW1
 ```
-- macOS:
+- macOS/Linux:
 ```
 git clone https://github.com/chadamik2/software_design_HW1.git
 cd software_design_HW1
 ```
 3. Создать и активировать виртуальное окружение
-- Windows:
+- Windows - PowerShell:
 ```
 py -3.12 -m venv .venv
 Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
 .\.venv\Scripts\Activate.ps1
 ```
-- macOS:
+- Windows - cmd.exe
+```
+py -3.12 -m venv .venv
+.\.venv\Scripts\Activate.ps1
+```
+- macOS/Linux:
 ```
 python3.12 -m venv .venv
 source .venv/bin/activate
 ```
-4. Запустить приложение 
+4. Запустить приложение
+Если вы находитесь в папке проекта
 ```
 cd ..
+```
+Запуск
+```
 python -m software_design_HW1.src.app.cli
 ```
 5. Установка корня(для тестов)
+Если вы находитесь в папке проекта
+```
+cd ..
+```
 ```
 pip install pytest pytest-cov
 ```
@@ -52,16 +65,95 @@ $env:PYTHONPATH = (Get-Item .).FullName
 ```
 - Windows - cmd.exe
 ```
-set PYTHONPATH=..
+set PYTHONPATH=.
 ```
 - macOS/Linux
 ```
-export PYTHONPATH=..
+export PYTHONPATH=.
 ```
 6. Запуск тестов
 ```
 pytest software_design_HW1/tests -q --maxfail=1 --disable-warnings --cov=software_design_HW1/src
 ```
+## Альтернатива - запуск в PyCharm
+1. Установите Python 3.12 и git
+2. Склонируйте репозиторий 
+- Windows:
+```
+git clone https://github.com/chadamik2/software_design_HW1.git
+cd software_design_HW1
+```
+- macOS/Linux:
+```
+git clone https://github.com/chadamik2/software_design_HW1.git
+cd software_design_HW1
+```
+### Открыть проект
+1. **File → Open…** → выберите папку репозитория `software_design_HW1`.
+2. Дождитесь индексации проекта.
+
+## Настроить интерпретатор (виртуальное окружение)
+
+1. **File → Settings → Project → Python Interpreter**
+2. Нажмите **⚙ → Add… → Add Local Interpreter → Virtualenv**.
+3. Выберите существующее `.venv` в корне проекта или создайте новое.
+4. Примените настройки (OK).
+
+
+## Запуск приложения
+
+**Run → Edit Configurations… → + → Python** и заполните поля:
+
+* **Name:** `Zoo CLI`
+* **Run:** `Module name`
+* **Module name:**
+
+  ```
+  software_design_HW1/src/app/cli.py
+  ```
+* **Working directory:** (родитель папки проекта)
+
+  ```
+  $PROJECT_DIR$/..
+  ```
+* **Environment variables:** добавьте
+
+  ```
+  PYTHONPATH=$PROJECT_DIR$/..
+  ```
+* ☑ **Add content roots to PYTHONPATH**
+* ☑ **Add source roots to PYTHONPATH**
+* **Python interpreter:** выберите ваше `.venv`
+
+Сохраните и запускайте зелёной кнопкой ▶.
+
+### Запуск тестов в PyCharm
+
+1. **Run → Edit Configurations… → + → pytest**.
+2. Поля:
+
+   * **Name:** `Tests`
+     ```
+     $PROJECT_DIR$/../software_design_HW1/tests
+     ```
+   * **Working directory:**
+
+     ```
+     $PROJECT_DIR$/..
+     ```
+   * **Environment variables:**
+
+     ```
+     PYTHONPATH=$PROJECT_DIR$/..
+     ```
+   * **Additional Arguments:**
+
+     ```
+     -q --maxfail=1 --disable-warnings --cov=software_design_HW1/src
+     ```
+   * ☑ **Add content roots…**, ☑ **Add source roots…**
+   * **Interpreter:** ваше `.venv`
+
 ## Структура проекта:
 ```
 software_design_HW1/
@@ -88,9 +180,10 @@ software_design_HW1/
 │ │ └── vetclinic.py
 │ │
 │ └── services/
-│ ├── container.py
 │ └── services.py
 │
+| ├── container.py
+|
 ├── tests/
 │ ├── test_container.py
 │ ├── test_inventory.py
