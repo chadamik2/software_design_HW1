@@ -75,7 +75,7 @@ export PYTHONPATH=.
 ```
 pytest software_design_HW1/tests -q --maxfail=1 --disable-warnings --cov=software_design_HW1/src
 ```
-## Альтернатива - запуск в PyCharm
+### Альтернатива - запуск в PyCharm
 1. Установите Python 3.12 и git
 2. Склонируйте репозиторий 
 - Windows:
@@ -88,11 +88,11 @@ cd software_design_HW1
 git clone https://github.com/chadamik2/software_design_HW1.git
 cd software_design_HW1
 ```
-### Открыть проект
+#### Открыть проект
 1. **File → Open…** → выберите папку репозитория `software_design_HW1`.
 2. Дождитесь индексации проекта.
 
-## Настроить интерпретатор (виртуальное окружение)
+#### Настроить интерпретатор (виртуальное окружение)
 
 1. **File → Settings → Project → Python Interpreter**
 2. Нажмите **⚙ → Add… → Add Local Interpreter → Virtualenv**.
@@ -100,7 +100,7 @@ cd software_design_HW1
 4. Примените настройки (OK).
 
 
-## Запуск приложения
+#### Запуск приложения
 
 **Run → Edit Configurations… → + → Python** и заполните поля:
 
@@ -127,7 +127,7 @@ cd software_design_HW1
 
 Сохраните и запускайте зелёной кнопкой ▶.
 
-### Запуск тестов в PyCharm
+#### Запуск тестов в PyCharm
 
 1. **Run → Edit Configurations… → + → pytest**.
 2. Поля:
