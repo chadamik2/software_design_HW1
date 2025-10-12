@@ -42,10 +42,24 @@ source .venv/bin/activate
 cd ..
 python -m software_design_HW1.src.app.cli
 ```
-5. Включить тесты
+5. Установка корня(для тестов)
 ```
 pip install pytest pytest-cov
+```
+- Windows - PowerShell
+```
 $env:PYTHONPATH = (Get-Item .).FullName
+```
+- Windows - cmd.exe
+```
+set PYTHONPATH=..
+```
+- macOS/Linux
+```
+export PYTHONPATH=..
+```
+6. Запуск тестов
+```
 pytest software_design_HW1/tests -q --maxfail=1 --disable-warnings --cov=software_design_HW1/src
 ```
 ## Структура проекта:
